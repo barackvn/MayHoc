@@ -1,7 +1,8 @@
 # MayHoc - Phân Loại Ảnh Cháy Rừng (Forest Fire Image Classification)
 
-> **Đồ án môn học Máy học (Machine Learning)**  
-> **Tác giả:** Cáp Phạm Đình Thăng  
+> **Đồ án môn học:** Máy học (Machine Learning)  
+> **Đề tài:** Phân loại và phát hiện cháy Rừng từ dữ liệu hình ảnh (Nhóm 20)  
+> **Giảng viên hướng dẫn:** Thầy Cáp Phạm Đình Thăng  
 > **Bộ dữ liệu:** DeepFire / Forest Fire Dataset (CC BY 4.0)
 
 ---
@@ -193,7 +194,22 @@ Kết quả trả về định dạng JSON:
 
 ---
 
-## Tác giả & Liên hệ
-- **Sinh viên thực hiện**: Cáp Phạm Đình Thăng
+## Nhóm thực hiện & Giảng viên hướng dẫn
+
+### Giảng viên hướng dẫn
+- **GVHD:** Thầy Cáp Phạm Đình Thăng
+
+### Danh sách thành viên (Nhóm 20)
+| STT | MSSV | Họ và tên |
+|:---:|:---:|:---|
+| 1 | 26410115 | Nông Nguyễn Thành |
+| 2 | 26410127 | Dương Quốc Thương |
+| 3 | 26410024 | Trần Tiến Dũng |
+| 4 | 26410019 | Trương Võ Thành Đạt |
+| 5 | 26410118 | Bùi Quốc Thịnh |
+| 6 | 26410146 | Hoàng Võ Minh Tuấn |
+
+---
+
 - **Môn học**: Máy học (Machine Learning)
 - **Kho lưu trữ GitHub**: [https://github.com/barackvn/MayHoc](https://github.com/barackvn/MayHoc)
