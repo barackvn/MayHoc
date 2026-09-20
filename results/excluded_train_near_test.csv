@@ -1,0 +1,3 @@
+path,label,source_split,width,height,pixel_sha256,dhash,brightness,sharpness,group
+data/raw/Forest Fire Dataset/Training/fire/fire_0334.jpg,1,train,250,250,a75d918145a382c662b9aba22a0ff00d400e2fbb18efc135c98d9816689a4441,3333313191999b9b,0.3592588337418301,1006.7847964216309,43
+data/raw/Forest Fire Dataset/Training/fire/fire_0623.jpg,1,train,250,250,a3890ee27ab6a50cfac9013ec0169aa9d7343a412451f02e0469268971d6eebf,16161617170f1b2b,0.2612238732298475,1073.6101771176232,46

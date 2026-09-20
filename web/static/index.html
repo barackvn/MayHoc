@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phân Loại Ảnh Cháy Rừng — So Sánh 4 Mô Hình Học Máy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">🔥</div>
+        <div>
+          <div class="brand-title">Đồ Án Môn Học Máy Học — Phân Loại Ảnh Cháy Rừng</div>
+          <div class="brand-sub">Hệ Thống Thử Nghiệm & So Sánh 4 Mô Hình Trực Tuyến | DeepFire Benchmark</div>
+        </div>
+      </div>
+      <div class="nav-badges">
+        <span class="badge badge-uit">UIT - ĐHQG TP.HCM</span>
+        <span class="badge badge-sota">SVM RBF: F1 94.03%</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- INPUT CARD: Nhập ảnh cần phân tích (Phỏng theo thiết kế ViHOS mẫu) -->
+    <section class="card input-card">
+      <div class="card-header">
+        <span class="card-icon">🖼️</span>
+        <h2 class="card-title">Nhập ảnh cần phân tích</h2>
+      </div>
+
+      <div class="card-body">
+        <!-- Khu vực Drag & Drop Upload và Preview -->
+        <div class="upload-dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
+          
+          <div class="dropzone-empty" id="dropzoneEmpty">
+            <div class="upload-icon">📸</div>
+            <div class="upload-text">Kéo thả ảnh vào đây hoặc <span class="upload-link">bấm để chọn ảnh từ máy</span></div>
+            <div class="upload-hint">Hỗ trợ JPG, PNG, JPEG (ảnh chụp rừng, khói, lửa thực địa)</div>
+          </div>
+
+          <div class="dropzone-preview" id="dropzonePreview" style="display: none;">
+            <img id="previewImg" src="" alt="Ảnh đang chọn" />
+            <div class="preview-overlay">
+              <button type="button" class="btn btn-sm btn-change" id="btnChangeImg">🔄 Đổi ảnh khác</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ví dụ thử nhanh -->
+        <div class="quick-examples">
+          <span class="examples-label">Ví dụ thử nhanh:</span>
+          <div class="example-buttons" id="samplesContainer">
+            <button class="btn-sample" data-sample="sample_1">Mẫu 1 (Cháy rõ)</button>
+            <button class="btn-sample" data-sample="sample_2">Mẫu 2 (Khói dày)</button>
+            <button class="btn-sample" data-sample="sample_3">Mẫu 3 (Rừng xanh)</button>
+            <button class="btn-sample" data-sample="sample_4">Mẫu 4 (Núi đá gắt)</button>
+            <button class="btn-sample" data-sample="sample_5">Mẫu 5 (Lá vàng thu)</button>
+            <button class="btn-sample btn-sample-random" id="btnRandomTest">🎲 Ngẫu nhiên Test</button>
+          </div>
+        </div>
+
+        <!-- Tùy chọn & Nút Phân Tích -->
+        <div class="input-actions-row">
+          <div class="options-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="chkShowFeatures" checked>
+              <span>Hiển thị đặc trưng ảnh (HSV 64 chiều + HOG 800 chiều)</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="chkCompareAll" checked>
+              <span>So sánh tất cả 4 mô hình đồng thời</span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-analyze" id="btnAnalyze">
+            <span class="btn-icon">🔍</span> Phân tích ảnh
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="loading-overlay" id="loadingState" style="display: none;">
+      <div class="spinner"></div>
+      <div class="loading-text">Đang trích xuất Color Histogram, HOG và suy luận qua 4 mô hình...</div>
+    </div>
+
+    <!-- RESULTS SECTION: So sánh đồng thời 4 mô hình -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+      <div class="results-header">
+        <div class="results-title-group">
+          <span class="results-icon">📈</span>
+          <h2 class="results-title">Kết quả so sánh đồng thời 4 mô hình</h2>
+        </div>
+        <div class="results-meta">
+          <span class="badge badge-latency" id="totalLatencyBadge">⏱ Thời gian xử lý: 0.08 giây</span>
+          <button class="btn btn-outline" id="btnDownloadReport">📥 Tải báo cáo JSON</button>
+        </div>
+      </div>
+
+      <!-- 4 Columns Cards: Phỏng theo đúng thiết kế ViHOS -->
+      <div class="models-grid" id="modelsGrid">
+        <!-- Dynamic model cards will be inserted here -->
+      </div>
+
+      <!-- Khung Thuộc tính kỹ thuật ảnh (Độ sáng, Laplacian Variance, Kích thước) -->
+      <div class="card properties-card" id="propertiesCard">
+        <div class="card-header">
+          <span class="card-icon">📊</span>
+          <h3 class="card-title">Chỉ số định lượng kỹ thuật của ảnh phân tích</h3>
+        </div>
+        <div class="properties-grid" id="propertiesGrid">
+          <!-- Dynamic stats -->
+        </div>
+      </div>
+
+      <!-- Khung Benchmark Bảng đối chiếu thực nghiệm toàn diện -->
+      <div class="card benchmark-card">
+        <div class="card-header">
+          <span class="card-icon">🏆</span>
+          <h3 class="card-title">Bảng chuẩn đối chứng kết quả 4 mô hình trên 380 ảnh Test</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>MÔ HÌNH HỌC MÁY</th>
+                <th>ACCURACY TEST</th>
+                <th>PRECISION CHÁY</th>
+                <th>RECALL CHÁY</th>
+                <th>F1-SCORE CHÁY</th>
+                <th>SỐ ẢNH BỎ SÓT (FN)</th>
+                <th>ĐÁNH GIÁ TỔNG QUAN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong>Logistic Regression (Baseline)</strong></td>
+                <td>92,63%</td>
+                <td>92,19%</td>
+                <td>93,16%</td>
+                <td>92,67%</td>
+                <td>13 / 190 ảnh</td>
+                <td><span class="badge badge-blue">Tuyến tính mạnh</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>K-Nearest Neighbors (KNN)</strong></td>
+                <td>74,47%</td>
+                <td>92,66%</td>
+                <td>53,16%</td>
+                <td>67,56%</td>
+                <td class="text-danger"><strong>89 / 190 ảnh (Báo động)</strong></td>
+                <td><span class="badge badge-danger">Bỏ sót nhiều</span></td>
+              </tr>
+              <tr class="row-sota">
+                <td>3</td>
+                <td><strong>👑 SVM (Kernel RBF - Đề xuất tối ưu)</strong></td>
+                <td><strong class="text-success">93,95%</strong></td>
+                <td>92,82%</td>
+                <td><strong class="text-success">95,26%</strong></td>
+                <td><strong class="text-success">94,03%</strong></td>
+                <td><strong class="text-success">9 / 190 ảnh (Thấp nhất)</strong></td>
+                <td><span class="badge badge-sota">Tối ưu xuất sắc</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><strong>Random Forest (Ensemble 150 Cây)</strong></td>
+                <td>87,63%</td>
+                <td>88,65%</td>
+                <td>86,32%</td>
+                <td>87,47%</td>
+                <td>26 / 190 ảnh</td>
+                <td><span class="badge badge-warning">Overfitting nhẹ</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>Đồ án Môn học Máy học — Đề tài Phân loại ảnh cháy rừng (Forest Fire Image Classification)</p>
+      <p class="footer-sub">Mô hình: Logistic Regression, KNN, SVM, Random Forest | Pipeline: Color Histogram HSV + HOG + PCA</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

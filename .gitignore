@@ -1,0 +1,31 @@
+# Environments and dependencies
+.deps/
+.cache/
+.build/
+.chart-data-*/
+node_modules/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Large archives and raw datasets
+data/raw/
+data/*.zip
+*.zip
+*.tar.gz
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

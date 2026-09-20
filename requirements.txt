@@ -1,0 +1,20 @@
+# Machine Learning & Data Processing
+numpy>=1.26,<3
+pandas>=2.2,<3
+scikit-learn>=1.4,<2.0
+scikit-image>=0.22
+matplotlib>=3.8
+Pillow>=10.1
+joblib>=1.4
+threadpoolctl>=3.1
+
+# Notebooks & Reports
+nbformat>=5.9
+nbclient>=0.10
+ipykernel>=6.29
+python-docx>=1.1
+
+# Web App & Backend API
+fastapi>=0.110.0
+uvicorn>=0.28.0
+python-multipart>=0.0.9

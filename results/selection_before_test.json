@@ -1,0 +1,91 @@
+{
+  "selected_model": "SVM",
+  "criterion": "Highest validation F1, then validation recall",
+  "rows": [
+    {
+      "model": "Logistic Regression",
+      "cv_f1": 0.9378500384759412,
+      "cv_f1_std": 0.010609118691925625,
+      "search_seconds": 4.107148300012341,
+      "pca_components": 231,
+      "train_accuracy": 1.0,
+      "train_precision": 1.0,
+      "train_recall": 1.0,
+      "train_f1": 1.0,
+      "train_macro_f1": 1.0,
+      "validation_accuracy": 0.933993399339934,
+      "validation_precision": 0.9342105263157895,
+      "validation_recall": 0.9342105263157895,
+      "validation_f1": 0.9342105263157895,
+      "validation_macro_f1": 0.9339926803764378
+    },
+    {
+      "model": "KNN",
+      "cv_f1": 0.7504504006631666,
+      "cv_f1_std": 0.02929987715804182,
+      "search_seconds": 5.734044999990147,
+      "pca_components": 231,
+      "train_accuracy": 0.875515251442704,
+      "train_precision": 0.9728601252609603,
+      "train_recall": 0.7715231788079471,
+      "train_f1": 0.8605724838411819,
+      "train_macro_f1": 0.8740688182422589,
+      "validation_accuracy": 0.768976897689769,
+      "validation_precision": 0.9361702127659575,
+      "validation_recall": 0.5789473684210527,
+      "validation_f1": 0.7154471544715447,
+      "validation_macro_f1": 0.7605013550135502
+    },
+    {
+      "model": "SVM",
+      "cv_f1": 0.9365923112955065,
+      "cv_f1_std": 0.004640432096064697,
+      "search_seconds": 4.150435700023081,
+      "pca_components": 231,
+      "train_accuracy": 1.0,
+      "train_precision": 1.0,
+      "train_recall": 1.0,
+      "train_f1": 1.0,
+      "train_macro_f1": 1.0,
+      "validation_accuracy": 0.9405940594059405,
+      "validation_precision": 0.9240506329113924,
+      "validation_recall": 0.9605263157894737,
+      "validation_f1": 0.9419354838709677,
+      "validation_macro_f1": 0.9405623365300784
+    },
+    {
+      "model": "Random Forest",
+      "cv_f1": 0.8835652797704446,
+      "cv_f1_std": 0.015740274815151587,
+      "search_seconds": 21.346529500006,
+      "pca_components": 231,
+      "train_accuracy": 1.0,
+      "train_precision": 1.0,
+      "train_recall": 1.0,
+      "train_f1": 1.0,
+      "train_macro_f1": 1.0,
+      "validation_accuracy": 0.8613861386138614,
+      "validation_precision": 0.8481012658227848,
+      "validation_recall": 0.881578947368421,
+      "validation_f1": 0.864516129032258,
+      "validation_macro_f1": 0.8613121185701831
+    }
+  ],
+  "params": {
+    "Logistic Regression": {
+      "model__C": 1
+    },
+    "KNN": {
+      "model__n_neighbors": 3,
+      "model__weights": "uniform"
+    },
+    "SVM": {
+      "model__C": 10,
+      "model__kernel": "rbf"
+    },
+    "Random Forest": {
+      "model__max_depth": null,
+      "model__min_samples_leaf": 1
+    }
+  }
+}

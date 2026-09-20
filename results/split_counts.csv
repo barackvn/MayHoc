@@ -1,0 +1,4 @@
+split,non_fire,fire,total
+train,609,604,1213
+validation,151,152,303
+test,190,190,380

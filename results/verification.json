@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "No exact duplicates retained",
+    "No dHash groups cross split",
+    "Test counts and metrics recomputed from predictions",
+    "Selected model uses validation only"
+  ],
+  "model_sha256": {
+    "KNN.joblib": "300c0dc160ff48afd4878369ee608bcc432d2a9ce286b29ee576de41fb4cfa11",
+    "Logistic_Regression.joblib": "6a156ad848c6efabe552dc80ceaf57d72f4b6fc35418aec11d4038ef4f2276fe",
+    "Random_Forest.joblib": "b131b115f710237af15246ec4ef2f0d543120861c63e67414729b129630c1744",
+    "SVM.joblib": "924e91a2d8dfc93ae02ab7addd4232d866198ffa4e6fc3bfad69bb0901383c4c"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "source": "https://www.kaggle.com/datasets/alik05/forest-fire-dataset",
+  "download": "https://www.kaggle.com/api/v1/datasets/download/alik05/forest-fire-dataset",
+  "license": "CC BY 4.0 (dataset card)",
+  "original_readable": 1900,
+  "unreadable": 0,
+  "source_counts": {
+    "test_0": 190,
+    "test_1": 190,
+    "train_0": 760,
+    "train_1": 760
+  },
+  "exact_duplicates_removed": 2,
+  "conflict_images_removed": 0,
+  "train_images_near_test_removed": 2,
+  "retained": 1896,
+  "near_pair_count": 2,
+  "split_counts": {
+    "train": {
+      "non_fire": 609,
+      "fire": 604,
+      "total": 1213
+    },
+    "validation": {
+      "non_fire": 151,
+      "fire": 152,
+      "total": 303
+    },
+    "test": {
+      "non_fire": 190,
+      "fire": 190,
+      "total": 380
+    }
+  },
+  "grouping": "64-bit dHash distance <= 4, connected components",
+  "seed": 42,
+  "archive_sha256": "deb4b3395cb48aa2fe1f2ff1e9f4c9d77f33d93f689588e74ea891c7c34d47a4"
+}

@@ -1,0 +1,3 @@
+a,b,distance
+data/raw/Forest Fire Dataset/Training/fire/fire_0334.jpg,data/raw/Forest Fire Dataset/Testing/fire_0329.jpg,4
+data/raw/Forest Fire Dataset/Training/fire/fire_0623.jpg,data/raw/Forest Fire Dataset/Testing/fire_0344.jpg,1

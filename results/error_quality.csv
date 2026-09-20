@@ -1,0 +1,6 @@
+,brightness,brightness,sharpness,sharpness
+,mean,count,mean,count
+error_type,,,,
+FN: bỏ sót,0.3221367404986686,9,559.1531881486948,9
+FP: báo nhầm,0.3756161492374727,14,1573.231289457717,14
+Đúng,0.3706408004037672,357,1686.1645695793525,357
